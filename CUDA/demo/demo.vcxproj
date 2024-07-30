@@ -127,6 +127,10 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>cudart.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <CudaCompile>
+      <Include>
+      </Include>
+    </CudaCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
     <CudaCompile Include="hello world.cu" />
