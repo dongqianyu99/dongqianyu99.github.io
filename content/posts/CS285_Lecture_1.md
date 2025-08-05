@@ -60,7 +60,7 @@ Reinforcement learning
 
 {{< figure src="/images/CS285/Lecture_1/3.png" class="fig-50">}}
 
-In reinforcement learning, we have a cyclical online learning procedure where an agent interacts with the world. The agent chooses actions $\mathbf{a}_t$ at every  point in time and the world responds with the resulting states $\mathbf{s}_{t+1}$ and rewards signal. The reward signal  simply indicates how good that state is but it doesn’t necessarily tell you if the action that you just took was a good or bad action.
+In reinforcement learning, we have a cyclical online learning procedure where an agent interacts with the world. The agent chooses actions $\mathbf{a}\_t$ at every  point in time and the world responds with the resulting states $\mathbf{s}\_{t+1}$ and rewards signal. The reward signal  simply indicates how good that state is but it doesn’t necessarily tell you if the action that you just took was a good or bad action.
 
 ***The Bitter Lesson*** by Rich Sutton
 
