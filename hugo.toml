@@ -1,6 +1,6 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://dongqianyu99.github.io/lee-log'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'lee-log'
 
 [caches]
   [caches.images]
