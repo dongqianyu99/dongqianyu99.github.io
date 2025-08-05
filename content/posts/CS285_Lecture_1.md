@@ -4,6 +4,7 @@ date: 2025-08-03
 description: "Introduction and Course Overview."
 draft: false
 tags: ["Deep Reinforcement Learning"]
+math: true
 ---
 
 # Lecture 1: Introduction and Course Overview
@@ -28,7 +29,7 @@ In a reinforcement learning setting, we wouldn’t try to manually solving speci
 
 A reinforcement learning algorithm, very different from a supervised learning algorithm, is not just trying to copy everything that’s in the data, but trying to use these success and failure labels to figure out what it should do in order to maximize the number of success or to maximize the reward.
 
-![截屏2025-03-30 00.12.58.png](../../images/CS285/Lecture_1/截屏2025-03-30_00.12.58.png)
+{{< figure src="/images/CS285/Lecture_1/1.png" >}}
 
 **What does reinforcement learning do differently?**
 
@@ -50,7 +51,7 @@ Standard (supervised) machine learning
 - i.i.d. data
 - known ground truth outputs in training
 
-![截屏2025-03-30 00.52.19.png](../../images/CS285/Lecture_1/截屏2025-03-30_00.52.19.png)
+{{< figure src="/images/CS285/Lecture_1/2.png" >}}
 
 Reinforcement learning
 
@@ -58,7 +59,7 @@ Reinforcement learning
 - Ground truth answer is not known, only known if we succeeded or failed
     - more generally, we know the reward
 
-![截屏2025-03-30 00.54.34.png](../../images/CS285/Lecture_1/截屏2025-03-30_00.54.34.png)
+{{< figure src="/images/CS285/Lecture_1/3.png" >}}
 
 In reinforcement learning, we have a cyclical online learning procedure where an agent interacts with the world. The agent chooses actions $\mathbf{a}_t$ at every  point in time and the world responds with the resulting states $\mathbf{s}_{t+1}$ and rewards signal. The reward signal  simply indicates how good that state is but it doesn’t necessarily tell you if the action that you just took was a good or bad action.
 
@@ -126,7 +127,7 @@ It’s obvious that the rewards of lots of impressive things that humans do are 
 - Deep = scalable learning from large, complex datasets
 - Reinforcement learning = optimization
 
-![截屏2025-03-31 01.20.07.png](../../images/CS285/Lecture_1/截屏2025-03-31_01.20.07.png)
+{{< figure src="/images/CS285/Lecture_1/3.png" >}}
 
 ## What challenges still remains?
 

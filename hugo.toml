@@ -1,7 +1,36 @@
 baseURL = 'https://dongqianyu99.github.io/lee-log/'
 languageCode = 'en-us'
 title = 'lee-log'
+theme = 'not-much'
 
-[caches]
-  [caches.images]
-    dir = ':cacheDir/images'
+# [caches]
+#   [caches.images]
+#     dir = ':cacheDir/images'
+
+[markup]
+  [markup.highlight]
+    style = 'dracula'
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = false
+
+[params]
+theme = "light"
+palette = "lee"
+showThemeNotice = true
+
+# Navigation
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "home"
+    title = "home"
+    url = "/"
+    weight = 1
+
+  [[menu.main]]
+    identifier = "posts"
+    name = "posts"
+    title = "posts"
+    url = "/posts"
+    weight = 2
