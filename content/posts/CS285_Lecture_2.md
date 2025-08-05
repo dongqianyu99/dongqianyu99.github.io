@@ -90,9 +90,7 @@ It probably shouldn’t be the likelihood of the training actions due to the dis
 
 One measure we can use, for example in a self-driving case, might be as follow:
 
-$$
-\left.c(\mathbf{s}\_t,\mathbf{a}\_t)=\left\{\begin{array}{l}0\mathrm{~if~}\mathbf{a}\_t=\pi^\star(\mathbf{s}\_t) \\1\mathrm{~otherwise}\end{array}\right.\right.
-$$
+{{< figure src="/images/CS285/Lecture_2/15.png" class="fig-75">}}
 
 and we try to minimize $E_{\mathbf{s}t\thicksim p{\pi\_\theta}(\mathbf{s}\_t)}[c(\mathbf{s}\_t,\mathbf{a}\_t)]$.
 
