@@ -29,7 +29,7 @@ In a reinforcement learning setting, we wouldn’t try to manually solving speci
 
 A reinforcement learning algorithm, very different from a supervised learning algorithm, is not just trying to copy everything that’s in the data, but trying to use these success and failure labels to figure out what it should do in order to maximize the number of success or to maximize the reward.
 
-{{< figure src="/images/CS285/Lecture_1/1.png" >}}
+{{< figure src="/images/CS285/Lecture_1/1.png" class="fig-75">}}
 
 **What does reinforcement learning do differently?**
 
@@ -51,7 +51,7 @@ Standard (supervised) machine learning
 - i.i.d. data
 - known ground truth outputs in training
 
-{{< figure src="/images/CS285/Lecture_1/2.png" >}}
+{{< figure src="/images/CS285/Lecture_1/2.png" class="fig-50">}}
 
 Reinforcement learning
 
@@ -59,7 +59,7 @@ Reinforcement learning
 - Ground truth answer is not known, only known if we succeeded or failed
     - more generally, we know the reward
 
-{{< figure src="/images/CS285/Lecture_1/3.png" >}}
+{{< figure src="/images/CS285/Lecture_1/3.png" class="fig-50">}}
 
 In reinforcement learning, we have a cyclical online learning procedure where an agent interacts with the world. The agent chooses actions $\mathbf{a}_t$ at every  point in time and the world responds with the resulting states $\mathbf{s}_{t+1}$ and rewards signal. The reward signal  simply indicates how good that state is but it doesn’t necessarily tell you if the action that you just took was a good or bad action.
 

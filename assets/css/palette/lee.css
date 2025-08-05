@@ -2,8 +2,8 @@
     --bg-color: #ffffff;
     --bg-variant: #b6b6b6;
     --primary: #FF5D73;
-    --primary-variant: #FF1A39;
-    --secondary: #FF1A39;
+    --primary-variant: #a84ea8;
+    --secondary:#a969a9;
     --font-color: #1a1a1a;
     --selection-color: black;
 }
@@ -17,6 +17,25 @@
     --font-color: #f1f1f1;
     --selection-color: black;
 }
+
+/* 设置一个宽度为 50% 的类 */
+.fig-50 img {
+  width: 50%;
+  height: auto; /* 保持图片的原始高宽比 */
+}
+
+/* 设置一个宽度为 75% 的类 */
+.fig-75 img {
+  width: 75%;
+  height: auto;
+}
+
+/* 设置一个宽度为 100% 的类 */
+.fig-100 img {
+  width: 100%;
+  height: auto;
+}
+
 
 body {
     background-image: url('../../../images/topo.svg') !important;

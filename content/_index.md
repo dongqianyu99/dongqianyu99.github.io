@@ -1,7 +1,11 @@
 ---
 lead: "zejuli at zju dot edu dot cn"
 ---
-Hi, I'm Lee from ZJU.
-Check my [acadamic page](https://zeju-li.com) for more information.
+Hi, this is Lee from ZJU.
+I'm documenting my learning notes in this blog.
+
+Feel free to read more [about myself](https://zeju-li.com).
 
 This blog is using [not-much](https://github.com/imgios/not-much) as a template.
+
+[Github](https://github.com/dongqianyu99) / [Twitter](https://x.com/lzj1236121)
