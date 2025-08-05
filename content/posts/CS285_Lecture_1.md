@@ -64,7 +64,7 @@ In reinforcement learning, we have a cyclical online learning procedure where an
 
 ***The Bitter Lesson*** by Rich Sutton
 
-[https://www.cs.utexas.edu/~eunsol/courses/data/bitter_lesson.pdf](https://www.cs.utexas.edu/~eunsol/courses/data/bitter_lesson.pdf)
+[The Bitter Lesson](https://www.cs.utexas.edu/~eunsol/courses/data/bitter_lesson.pdf)
 
 - ***learning*** : use **data** to extract **patterns**
 - ***Search*** : use **computation** to extract **inferences**

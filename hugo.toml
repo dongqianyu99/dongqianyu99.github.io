@@ -17,7 +17,8 @@ theme = 'not-much'
 [params]
 theme = "light"
 palette = "lee"
-showThemeNotice = true
+showThemeNotice = false
+showPostsSummary = true
 math = true
 
 # Navigation
@@ -35,3 +36,10 @@ math = true
     title = "posts"
     url = "/posts"
     weight = 2
+
+  [[menu.main]]
+    identifier = "tags"
+    name = "tags"
+    title = "tags"
+    url = "/tags"
+    weight = 3
