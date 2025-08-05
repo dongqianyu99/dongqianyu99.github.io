@@ -74,7 +74,6 @@ In reinforcement learning, we have a cyclical online learning procedure where an
 A postulate: 
 
 > We need machine learning for one reason and one reason only — that’s **to produce adaptable and complex decisions.**
-> 
 
 It’s not a problem of prediction, but a problem of **decision making**.
 
@@ -138,5 +137,6 @@ It’s obvious that the rewards of lots of impressive things that humans do are 
 - Not clear what the reward function should be
 - Not clear what the role of prediction should be
 
-> Instead of trying to produce a program to simulate the adult mind, why not rather try to produce one which simulates the child’s? If this were then subjected to an appropriate course of education one would obtain the adult brain. — Alan Turing
+> Instead of trying to produce a program to simulate the adult mind, why not rather try to produce one which simulates the child’s? If this were then subjected to an appropriate course of education one would obtain the adult brain. 
 >
+> — Alan Turing
