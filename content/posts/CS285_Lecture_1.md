@@ -1,10 +1,9 @@
 ---
 title: "CS285: Lecture 1"
 date: 2025-08-03
-description: "Introduction and Course Overview."
 draft: false
 tags: ["Deep Reinforcement Learning"]
-math: true
+summary: Introduction and Course Overview.
 ---
 
 # Lecture 1: Introduction and Course Overview
@@ -127,7 +126,7 @@ It’s obvious that the rewards of lots of impressive things that humans do are 
 - Deep = scalable learning from large, complex datasets
 - Reinforcement learning = optimization
 
-{{< figure src="/images/CS285/Lecture_1/3.png" >}}
+{{< figure src="/images/CS285/Lecture_1/4.png" class="fig-75">}}
 
 ## What challenges still remains?
 

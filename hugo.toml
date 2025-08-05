@@ -18,6 +18,7 @@ theme = 'not-much'
 theme = "light"
 palette = "lee"
 showThemeNotice = true
+math = true
 
 # Navigation
 [menu]
