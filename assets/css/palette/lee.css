@@ -18,6 +18,13 @@
     --selection-color: black;
 }
 
+/* 设置一个宽度为 25% 的类 */
+.fig-25 img {
+  width: 25%;
+  height: auto; /* 保持图片的原始高宽比 */
+}
+
+
 /* 设置一个宽度为 50% 的类 */
 .fig-50 img {
   width: 50%;

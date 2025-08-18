@@ -224,7 +224,7 @@ $$
 
 ### Model-based RL algorithms
 
-{{< figure src="/images/CS285/Lecture_4/9.png" class="fig-50">}}
+{{< figure src="/images/CS285/Lecture_4/9.png" class="fig-25">}}
 
 - Learn $p(\mathbf{s}\_{t+1}|\mathbf{s}\_t,\mathbf{a}\_t)$
 - This could be a neural net that either outputs a probability distribution over $\mathbf{s}\_{t+1}$ or a deterministic model  attempting to predict $\mathbf{s}\_{t+1}$ directly.
@@ -238,7 +238,7 @@ $$
     - Dynamic programming
     - Generate simulated experience for model-free learner
 
-{{< figure src="/images/CS285/Lecture_4/10.png" class="fig-50">}}
+{{< figure src="/images/CS285/Lecture_4/10.png" class="fig-25">}}
 
 ### Value function based algorithms
 
