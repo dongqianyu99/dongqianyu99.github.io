@@ -8,4 +8,4 @@ Feel free to read more [about myself](https://zeju-li.com).
 
 This blog is using [not-much](https://github.com/imgios/not-much) as a template.
 
-[Github](https://github.com/dongqianyu99) / [Twitter](https://x.com/lzj1236121)
+[Google Scholar](https://scholar.google.com.tw/citations?hl=zh-TW&user=5NukqTsAAAAJ) / [Github](https://github.com/dongqianyu99) / [Twitter](https://x.com/lzj1236121)
