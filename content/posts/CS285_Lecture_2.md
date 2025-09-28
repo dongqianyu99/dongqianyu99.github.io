@@ -99,8 +99,8 @@ The point here is that what we care about is the number of mistakes that the pol
 That means, *what we care about is the cost in expectation under $p\_{\pi\_\theta}$, under the distribution of states that the policy will actually see*.
 
 {{< collapsible title="More analysis" >}}
-    {{< figure src="/images/CS285/Lecture_2/5.png" class="fig-100">}}
-    {{< figure src="/images/CS285/Lecture_2/6.png" class="fig-100">}}
+{{< figure src="/images/CS285/Lecture_2/5.png" class="fig-100">}}
+{{< figure src="/images/CS285/Lecture_2/6.png" class="fig-100">}}
 {{< /collapsible >}}
 
 In general, you could imagine that with these accumulating errors, if instead of training on fairly narrow and optimal trajectories, but training on a set of trajectories that all make some mistakes and then recover from the mistakes such that the training distribution is a little bit broader so that whenever you make a small mistake you’re still in distribution, then your policy might actually learn to correct those mistakes and still do fairly well.
