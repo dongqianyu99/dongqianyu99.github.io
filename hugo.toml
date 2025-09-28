@@ -21,6 +21,11 @@ showThemeNotice = false
 showPostsSummary = true
 math = true
 
+# 文章排序方式：date(日期)、title(标题)、weight(权重) 等
+# 可以用 "-" 前缀表示降序，例如 "-date" 表示最新日期在前
+mainSections = ["posts"]
+paginate = 10
+
 # Navigation
 [menu]
   [[menu.main]]

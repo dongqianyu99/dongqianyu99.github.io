@@ -1,6 +1,6 @@
 ---
 title: "CS285: Lecture 5"
-date: 2025-08-03
+date: 2025-09-01
 draft: false
 tags: ["Deep Reinforcement Learning"]
 summary: Policy Gradient
@@ -10,20 +10,19 @@ summary: Policy Gradient
 ## Lecture Slides & Videos
 
 ---
-
 - [Lecture 5: Policy Gradients](https://rail.eecs.berkeley.edu/deeprlcourse/deeprlcourse/static/slides/lec-5.pdf)
 
-[CS 285: Lecture 5, Part 1](https://www.youtube.com/watch?v=GKoKNYaBvM0&list=PL_iWQOsE6TfVYGEGiAOMaOzzv41Jfm_Ps&index=15)
+- [CS 285: Lecture 5, Part 1](https://www.youtube.com/watch?v=GKoKNYaBvM0&list=PL_iWQOsE6TfVYGEGiAOMaOzzv41Jfm_Ps&index=15)
 
-[CS 285: Lecture 5, Part 2](https://www.youtube.com/watch?v=VSPYKXm_hMA&list=PL_iWQOsE6TfVYGEGiAOMaOzzv41Jfm_Ps&index=16)
+- [CS 285: Lecture 5, Part 2](https://www.youtube.com/watch?v=VSPYKXm_hMA&list=PL_iWQOsE6TfVYGEGiAOMaOzzv41Jfm_Ps&index=16)
 
-[CS 285: Lecture 5, Part 3](https://www.youtube.com/watch?v=VgdSubQN35g&list=PL_iWQOsE6TfVYGEGiAOMaOzzv41Jfm_Ps&index=17)
+- [CS 285: Lecture 5, Part 3](https://www.youtube.com/watch?v=VgdSubQN35g&list=PL_iWQOsE6TfVYGEGiAOMaOzzv41Jfm_Ps&index=17)
 
-[CS 285: Lecture 5, Part 4](https://www.youtube.com/watch?v=KZd508qGFt0&list=PL_iWQOsE6TfVYGEGiAOMaOzzv41Jfm_Ps&index=18)
+- [CS 285: Lecture 5, Part 4](https://www.youtube.com/watch?v=KZd508qGFt0&list=PL_iWQOsE6TfVYGEGiAOMaOzzv41Jfm_Ps&index=18)
 
-[CS 285: Lecture 5, Part 5](https://www.youtube.com/watch?v=QRLDAQbWc78&list=PL_iWQOsE6TfVYGEGiAOMaOzzv41Jfm_Ps&index=19)
+- [CS 285: Lecture 5, Part 5](https://www.youtube.com/watch?v=QRLDAQbWc78&list=PL_iWQOsE6TfVYGEGiAOMaOzzv41Jfm_Ps&index=19)
 
-[CS 285: Lecture 5, Part 6](https://www.youtube.com/watch?v=PEzuojy8lVo&list=PL_iWQOsE6TfVYGEGiAOMaOzzv41Jfm_Ps&index=20)
+- [CS 285: Lecture 5, Part 6](https://www.youtube.com/watch?v=PEzuojy8lVo&list=PL_iWQOsE6TfVYGEGiAOMaOzzv41Jfm_Ps&index=20)
 
 ## Policy Gradient
 
@@ -97,7 +96,7 @@ $$
 
 If we think back to the anatomy of the reinforcement learning algorithm that we covered before, we can find the following paring relationships
 
-{{< figure src="/images/CS285/Lecture_5/1.png" class="fig-25">}}
+{{< figure src="/images/CS285/Lecture_5/1.png" class="fig-75">}}
 
 - Orange → $\frac{1}{N}\sum\_{i=1}^N$
 - Green → $\sum\_{t=1}^Tr(\mathbf{s}\_{i,t},\mathbf{a}\_{i,t})$
@@ -206,6 +205,8 @@ Therefore, on-policy learning can be extremely inefficient.
 What if we don’t have samples from $p\_\theta({\tau})$? ( we have samples from some $\bar{p}(\tau)$ instead )
 
 ***Importance sampling***
+
+
 
 $$
 \begin{aligned}

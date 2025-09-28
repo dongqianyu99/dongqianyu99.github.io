@@ -1,6 +1,6 @@
 ---
 title: "CS285: Lecture 1"
-date: 2025-08-03
+date: 2025-05-25
 draft: false
 tags: ["Deep Reinforcement Learning"]
 summary: Introduction and Course Overview.
@@ -14,11 +14,11 @@ summary: Introduction and Course Overview.
 
 - [Lecture 1: Introduction and Course Overview](https://rail.eecs.berkeley.edu/deeprlcourse/deeprlcourse/static/slides/lec-1.pdf)
 
-[CS 285: Lecture 1, Introduction. Part 1](https://www.youtube.com/watch?v=SupFHGbytvA&list=PL_iWQOsE6TfVYGEGiAOMaOzzv41Jfm_Ps&index=1)
+- [CS 285: Lecture 1, Introduction. Part 1](https://www.youtube.com/watch?v=SupFHGbytvA&list=PL_iWQOsE6TfVYGEGiAOMaOzzv41Jfm_Ps&index=1)
 
-[CS 285: Lecture 1, Introduction. Part 2](https://www.youtube.com/watch?v=BYh36cb92JQ&list=PL_iWQOsE6TfVYGEGiAOMaOzzv41Jfm_Ps&index=2)
+- [CS 285: Lecture 1, Introduction. Part 2](https://www.youtube.com/watch?v=BYh36cb92JQ&list=PL_iWQOsE6TfVYGEGiAOMaOzzv41Jfm_Ps&index=2)
 
-[CS 285: Lecture 1, Introduction. Part 3](https://www.youtube.com/watch?v=Ufww5pzc_N0&list=PL_iWQOsE6TfVYGEGiAOMaOzzv41Jfm_Ps&index=3)
+- [CS 285: Lecture 1, Introduction. Part 3](https://www.youtube.com/watch?v=Ufww5pzc_N0&list=PL_iWQOsE6TfVYGEGiAOMaOzzv41Jfm_Ps&index=3)
 
 ## Abstract
 

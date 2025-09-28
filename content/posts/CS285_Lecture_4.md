@@ -13,17 +13,17 @@ summary: Introduction to Reinforcement Learning.
 
 - [Lecture 4: Introduction to Reinforcement Learning](https://rail.eecs.berkeley.edu/deeprlcourse/deeprlcourse/static/slides/lec-4.pdf)
 
-[CS 285: Lecture 4, Part 1](https://www.youtube.com/watch?v=jds0Wh9jTvE&list=PL_iWQOsE6TfVYGEGiAOMaOzzv41Jfm_Ps&index=9)
+- [CS 285: Lecture 4, Part 1](https://www.youtube.com/watch?v=jds0Wh9jTvE&list=PL_iWQOsE6TfVYGEGiAOMaOzzv41Jfm_Ps&index=9)
 
-[CS 285: Lecture 4, Part 2](https://www.youtube.com/watch?v=Cip5UeGrCEE&list=PL_iWQOsE6TfVYGEGiAOMaOzzv41Jfm_Ps&index=10)
+- [CS 285: Lecture 4, Part 2](https://www.youtube.com/watch?v=Cip5UeGrCEE&list=PL_iWQOsE6TfVYGEGiAOMaOzzv41Jfm_Ps&index=10)
 
-[CS 285: Lecture 4, Part 3](https://www.youtube.com/watch?v=Pua9zO_YmKA&list=PL_iWQOsE6TfVYGEGiAOMaOzzv41Jfm_Ps&index=11)
+- [CS 285: Lecture 4, Part 3](https://www.youtube.com/watch?v=Pua9zO_YmKA&list=PL_iWQOsE6TfVYGEGiAOMaOzzv41Jfm_Ps&index=11)
 
-[CS 285: Lecture 4, Part 4](https://www.youtube.com/watch?v=eG9-F4r5k70&list=PL_iWQOsE6TfVYGEGiAOMaOzzv41Jfm_Ps&index=12)
+- [CS 285: Lecture 4, Part 4](https://www.youtube.com/watch?v=eG9-F4r5k70&list=PL_iWQOsE6TfVYGEGiAOMaOzzv41Jfm_Ps&index=12)
 
-[CS 285: Lecture 4, Part 5](https://www.youtube.com/watch?v=dFqoGAyofUQ&list=PL_iWQOsE6TfVYGEGiAOMaOzzv41Jfm_Ps&index=13)
+- [CS 285: Lecture 4, Part 5](https://www.youtube.com/watch?v=dFqoGAyofUQ&list=PL_iWQOsE6TfVYGEGiAOMaOzzv41Jfm_Ps&index=13)
 
-[CS 285: Lecture 4, Part 6](https://www.youtube.com/watch?v=hfj9mS3nTLU&list=PL_iWQOsE6TfVYGEGiAOMaOzzv41Jfm_Ps&index=14)
+- [CS 285: Lecture 4, Part 6](https://www.youtube.com/watch?v=hfj9mS3nTLU&list=PL_iWQOsE6TfVYGEGiAOMaOzzv41Jfm_Ps&index=14)
 
 ## Definitions
 
@@ -134,7 +134,7 @@ The interesting thing about the expected values is that the expected values can 
 
 ### The anatomy of a reinforcement learning algorithm
 
-{{< figure src="/images/CS285/Lecture_4/8.png" class="fig-50">}}
+{{< figure src="/images/CS285/Lecture_4/8.png" class="fig-75">}}
 
 **Which parts are expensive?**
 

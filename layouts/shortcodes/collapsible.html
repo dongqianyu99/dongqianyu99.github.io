@@ -1,0 +1,7 @@
+{{ $title := .Get "title" | default "点击展开" }}
+{{ $content := .Inner }}
+
+<button type="button" class="collapsible">{{ $title }}</button>
+<div class="collapsible-content">
+    {{ $content | markdownify }}
+</div>

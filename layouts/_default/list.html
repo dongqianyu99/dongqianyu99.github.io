@@ -5,7 +5,13 @@
       {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
     </div>
     {{ .Content }}
-    {{ $paginator := .Paginate (where .Data.Pages "Type" "posts") }}
+    {{ $pages := where .Data.Pages "Type" "posts" }}
+    <!-- 可以选择不同的排序方式： -->
+    <!-- {{ $pages = $pages.ByWeight }}  按权重排序 -->
+    <!-- {{ $pages = $pages.ByTitle }}   按标题排序 -->
+    <!-- {{ $pages = $pages.ByDate }}    按日期升序 -->
+    {{ $pages = $pages.ByDate.Reverse }}  <!-- 按日期降序排列，最新的在前 -->
+    {{ $paginator := .Paginate $pages }}
     {{ range $paginator.Pages }}
     <div class="row mb-3">
       {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}

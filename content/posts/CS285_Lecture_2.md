@@ -1,6 +1,6 @@
 ---
 title: "CS285: Lecture 2"
-date: 2025-08-03
+date: 2025-07-28
 draft: false
 tags: ["Deep Reinforcement Learning"]
 summary: Supervised Learning of Behaviors.
@@ -14,15 +14,15 @@ summary: Supervised Learning of Behaviors.
 
 - [Lecture 2: Supervised Learning of Behaviors](https://rail.eecs.berkeley.edu/deeprlcourse/deeprlcourse/static/slides/lec-2.pdf)
 
-[CS 285: Lecture 2, Imitation Learning. Part 1](https://www.youtube.com/watch?v=tbLaFtYpWWU&list=PL_iWQOsE6TfVYGEGiAOMaOzzv41Jfm_Ps&index=4)
+- [CS 285: Lecture 2, Imitation Learning. Part 1](https://www.youtube.com/watch?v=tbLaFtYpWWU&list=PL_iWQOsE6TfVYGEGiAOMaOzzv41Jfm_Ps&index=4)
 
-[CS 285: Lecture 2, Imitation Learning. Part 2](https://www.youtube.com/watch?v=YivJ9KDjn-o&list=PL_iWQOsE6TfVYGEGiAOMaOzzv41Jfm_Ps&index=5)
+- [CS 285: Lecture 2, Imitation Learning. Part 2](https://www.youtube.com/watch?v=YivJ9KDjn-o&list=PL_iWQOsE6TfVYGEGiAOMaOzzv41Jfm_Ps&index=5)
 
-[CS 285: Lecture 2, Imitation Learning. Part 3](https://www.youtube.com/watch?v=ppN5ORNrMos&list=PL_iWQOsE6TfVYGEGiAOMaOzzv41Jfm_Ps&index=6)
+- [CS 285: Lecture 2, Imitation Learning. Part 3](https://www.youtube.com/watch?v=ppN5ORNrMos&list=PL_iWQOsE6TfVYGEGiAOMaOzzv41Jfm_Ps&index=6)
 
-[CS 285: Lecture 2, Imitation Learning. Part 4](https://www.youtube.com/watch?v=kLuJK6wDmEM&list=PL_iWQOsE6TfVYGEGiAOMaOzzv41Jfm_Ps&index=7)
+- [CS 285: Lecture 2, Imitation Learning. Part 4](https://www.youtube.com/watch?v=kLuJK6wDmEM&list=PL_iWQOsE6TfVYGEGiAOMaOzzv41Jfm_Ps&index=7)
 
-[CS 285: Lecture 2, Imitation Learning. Part 5](https://www.youtube.com/watch?v=awfrsjYnJmw&list=PL_iWQOsE6TfVYGEGiAOMaOzzv41Jfm_Ps&index=8)
+- [CS 285: Lecture 2, Imitation Learning. Part 5](https://www.youtube.com/watch?v=awfrsjYnJmw&list=PL_iWQOsE6TfVYGEGiAOMaOzzv41Jfm_Ps&index=8)
 
 ## Abstract
 
@@ -98,22 +98,22 @@ The point here is that what we care about is the number of mistakes that the pol
 
 That means, *what we care about is the cost in expectation under $p\_{\pi\_\theta}$, under the distribution of states that the policy will actually see*.
 
-- More analysis
-
-    {{< figure src="/images/CS285/Lecture_2/5.png" class="fig-75">}}
-
-    {{< figure src="/images/CS285/Lecture_2/6.png" class="fig-75">}}
+{{< collapsible title="More analysis" >}}
+    {{< figure src="/images/CS285/Lecture_2/5.png" class="fig-100">}}
+    {{< figure src="/images/CS285/Lecture_2/6.png" class="fig-100">}}
+{{< /collapsible >}}
 
 In general, you could imagine that with these accumulating errors, if instead of training on fairly narrow and optimal trajectories, but training on a set of trajectories that all make some mistakes and then recover from the mistakes such that the training distribution is a little bit broader so that whenever you make a small mistake you’re still in distribution, then your policy might actually learn to correct those mistakes and still do fairly well.
 
-{{< figure src="/images/CS285/Lecture_2/7.png" class="fig-50">}}
+{{< figure src="/images/CS285/Lecture_2/7.png" class="fig-75">}}
 
 
-> **A paradox**: imitation learning can work better if the date has more mistakes (and recoveries).
->
-- Paper mentioned
+**A paradox**: imitation learning can work better if the date has more mistakes (and recoveries).
 
-    [rpg.ifi.uzh.ch](https://rpg.ifi.uzh.ch/docs/RAL16_Giusti.pdf)
+{{< collapsible title="Paper mentioned" >}}
+[A Machine Learning Approach to Visual Perception
+of Forest Trails for Mobile Robots](https://rpg.ifi.uzh.ch/docs/RAL16_Giusti.pdf)
+{{< /collapsible >}}
 
 ### Why might we fail to fit the expert?
 
@@ -123,7 +123,7 @@ In general, you could imagine that with these accumulating errors, if instead of
 
     **How can we use the whole history?**
 
-    {{< figure src="/images/CS285/Lecture_2/8.png" class="fig-50">}}
+    {{< figure src="/images/CS285/Lecture_2/8.png" class="fig-75">}}
 
 
     - Aside: why might this work poorly?
@@ -137,7 +137,7 @@ In general, you could imagine that with these accumulating errors, if instead of
 
     If we are outputting a continuous action, maybe the mean and variance of the a Gaussian distribution, we will get a problem since a Gaussian has only one mode. We may average examples of left and examples of right, which is really really bad.
 
-    {{< figure src="/images/CS285/Lecture_2/10.png" class="fig-50">}}
+    {{< figure src="/images/CS285/Lecture_2/10.png" class="fig-25">}}
 
     - More expressive continuous distributions.
         - mixture of Gaussian
@@ -159,15 +159,15 @@ In general, you could imagine that with these accumulating errors, if instead of
 
         - Autoregressive discretization
 
-            {{< figure src="/images/CS285/Lecture_2/14.png" class="fig-75">}}
+            {{< figure src="/images/CS285/Lecture_2/14.png" class="fig-100">}}
 
-- Paper mentioned
+{{< collapsible title="Paper mentioned" >}}
+[Diffusion Policy: Visuomotor Policy Learning via Action Diffusion](https://diffusion-policy.cs.columbia.edu/)
 
-    [Diffusion Policy: Visuomotor Policy Learning via Action Diffusion](https://diffusion-policy.cs.columbia.edu/)
+[Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware](https://tonyzhaozh.github.io/aloha/)
 
-    [Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware](https://tonyzhaozh.github.io/aloha/)
-
-    [RT-1: Robotics Transformer](https://robotics-transformer1.github.io/)
+[RT-1: Robotics Transformer](https://robotics-transformer1.github.io/)
+{{< /collapsible >}}
 
 ### Does learning many tasks became easier?
 
@@ -181,11 +181,11 @@ demo 3: $\{\mathbf{s}\_1,\mathbf{a}\_t,\ldots,\mathbf{s}\_{T-1},\mathbf{a}\_{T-1
 
 for each demo, maximize $\log\pi\_\theta(\mathbf{a}\_t^i|\mathbf{s}\_t^i,\mathbf{g}=\mathbf{s}\_T^i)$
 
-- Paper mentioned
+{{< collapsible title="Paper mentioned" >}}
+[Learning Latent Plans from Play](https://learning-from-play.github.io/)
 
-    [Learning Latent Plans from Play](https://learning-from-play.github.io/)
-
-    [Unsupervised Visuomotor Control through Distributional Planning Networks](https://arxiv.org/abs/1902.05542)
+[Unsupervised Visuomotor Control through Distributional Planning Networks](https://arxiv.org/abs/1902.05542)
+{{< /collapsible >}}
 
 One of the interesting things you could do with these goal-conditional behavioral cloning methods is that you can actually use them as online self-improvement methods, very similar in spirit to RL.
 
@@ -197,11 +197,11 @@ One of the interesting things you could do with these goal-conditional behaviora
 
 Goal-conditional behavioral cloning methods are quite scalable.
 
-- Paper mentioned
+{{< collapsible title="Paper mentioned" >}}
+[General Navigation Models](https://general-navigation-models.github.io/)
 
-    [General Navigation Models](https://general-navigation-models.github.io/)
-
-    [Hindsight Experience Replay](https://arxiv.org/abs/1707.01495)
+[Hindsight Experience Replay](https://arxiv.org/abs/1707.01495)
+{{< /collapsible >}}
 
 ### Can we make it work more often?
 

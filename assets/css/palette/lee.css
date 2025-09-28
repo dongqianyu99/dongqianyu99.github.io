@@ -47,3 +47,48 @@
 body {
     background-image: url('../../../images/topo.svg') !important;
 }
+
+/* 折叠列表样式 */
+.collapsible {
+    background: none;
+    border: none;
+    color: var(--font-color);
+    cursor: pointer;
+    padding: 0;
+    margin: 8px 0 4px 0;
+    font-size: 1rem;
+    font-weight: normal;
+    font-family: 'Spectral', serif;
+    text-align: left;
+    outline: none;
+    display: flex;
+    align-items: center;
+}
+
+.collapsible:hover {
+    color: var(--primary-variant);
+}
+
+.collapsible:before {
+    content: '\25B6'; /* 右箭头 */
+    margin-right: 8px;
+    font-size: 0.8rem;
+    transition: transform 0.2s ease;
+    color: var(--secondary);
+}
+
+.collapsible.active:before {
+    transform: rotate(90deg); /* 向下箭头 */
+}
+
+.collapsible-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    margin-left: 20px;
+    margin-bottom: 8px;
+}
+
+.collapsible-content.active {
+    max-height: 9999px; /* 足够大的值以容纳任何内容 */
+}
