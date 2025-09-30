@@ -80,7 +80,7 @@ Now we have a much more elaborate green box. The green box now involve fitting s
 
 So the question here is: fit *what* to *what*?
 
-{{< figure src="/images/CS285/Lecture_6/3.png" class="fig-25">}}
+{{< figure src="/images/CS285/Lecture_6/3.png" class="fig-50">}}
 
 $$
 \begin{aligned} Q^\pi(\mathbf{s}\_t,\mathbf{a}\_t) & =r(\mathbf{s}\_t,\mathbf{a}\_t)+\sum\_{t^{\prime}=t+1}^{T}E\_{\pi\_{\theta}}\left[r(\mathbf{s}\_{t^{\prime}},\mathbf{a}\_{t^{\prime}})|\mathbf{s}\_t,\mathbf{a}\_t\right] \\ & =r(\mathbf{s}\_t,\mathbf{a}\_t)+E\_{\mathbf{s}\_{t+1}\sim p(\mathbf{s}\_{t+1}|\mathbf{s}\_t,\mathbf{a}\_t)}[V^{\pi}(\mathbf{s}\_{t+1})] \\ & \approx r(\mathbf{s}\_t,\mathbf{a}\_t)+V^\pi(\mathbf{s}\_{t+1})\end{aligned}
@@ -137,7 +137,7 @@ The way we would do this is
 
 - training data: 
   $$
-  \left\{\left(\mathbf{s}\_{i,t},\sum\_{t^{\prime}=t}^Tr(\mathbf{s}\_{i,t^{\prime}},\mathbf{a}\_{i,t^{\prime}})\right)\right\}, y\_{i,t} =\sum\_{t^{\prime}=t}^Tr(\mathbf{s}\_{i,t^{\prime}},\mathbf{a}\_{i,t^{\prime}})
+  \left\{ \left(\mathbf{s}\_{i,t},\sum\_{t^{\prime}=t}^Tr(\mathbf{s}\_{i,t^{\prime}},\mathbf{a}\_{i,t^{\prime}})\right) \right\}, y\_{i,t} =\sum\_{t^{\prime}=t}^Tr(\mathbf{s}\_{i,t^{\prime}},\mathbf{a}\_{i,t^{\prime}})
   $$
 - supervised regression: $\mathcal{L}(\phi)=\frac{1}{2}\sum\_i\left\|\hat{V}\_{\phi}^\pi(\mathbf{s}\_i)-y\_i\right\|^2$
 
@@ -175,7 +175,7 @@ where we will directly use previous fitted value function to estimate $\hat{V}\_
 4. $\nabla\_{\theta} J(\theta) \approx \sum\_i \nabla\_{\theta} \log \pi\_{\theta}(\mathbf{a}\_i | \mathbf{s}\_i) \hat{A}^\pi(\mathbf{s}\_i, \mathbf{a}\_i)$
 5. $\theta \leftarrow \theta + \alpha \nabla\_{\theta} J(\theta)$
 
-{{< figure src="/images/CS285/Lecture_6/5.png" class="fig-25">}}
+{{< figure src="/images/CS285/Lecture_6/5.png" class="fig-50">}}
 
 ### Aside: discount factors
 
@@ -260,7 +260,7 @@ In the asynchronous actor-critic algorithm, the whole point is that we are able 
 
 When updating the network, we’re going to use a replay buffer of all transitions we’ve seen, and load the batch from it. So we’re actually not going to necessarily use the latest transitions. But in this case, we have to modify our algorithm a bit since the batch that we load in from the buffer definitely comes from much older policies.
 
-{{< figure src="/images/CS285/Lecture_6/8.png" class="fig-25">}}
+{{< figure src="/images/CS285/Lecture_6/8.png" class="fig-50">}}
 
 **Online actor-critic algorithm:**
 
@@ -500,11 +500,11 @@ Can we combine these two, to control bias/variance tradeoff?
 
 - When we are using a discount, the reward will decrease over time, which means that the bias gotten from the value function is much less of a problem if we put the value function out of the next time step but further in the future.
     
-    {{< figure src="/images/CS285/Lecture_6/9.png" class="fig-25">}}
+    {{< figure src="/images/CS285/Lecture_6/9.png" class="fig-50">}}
     
 - On the other hand, the variance that we get from the single sample estimator is also much more of a problem further into the future. It’s quite natural to understand.
     
-    {{< figure src="/images/CS285/Lecture_6/10.png" class="fig-25">}}
+    {{< figure src="/images/CS285/Lecture_6/10.png" class="fig-50">}}
     
 
 The way we gonna use to combine these is constructing a ***n-step returns*** estimator. In a n-step return estimator, we sum up rewards until some time step ends and cut it off to replace it with the value function. The advantage estimator will be something like this
