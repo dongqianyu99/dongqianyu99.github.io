@@ -38,7 +38,7 @@ Since the policy and the MDP ( Markov Decision Process ) have some *randomness*,
 
 So we would have a better estimate of the *reward-to-go* if we could actually compute a ***full expectation*** over all these different possibilities.
 
-{{< figure src="/images/CS285/Lecture_6/2.png" class="fig-50">}}
+{{< figure src="/images/CS285/Lecture_6/2.png" class="fig-25">}}
 
 $$
 Q(\mathbf{s}\_t, \mathbf{a}\_t) = \sum\_{t^{\prime} = t}^{T}E\_{\pi\_{\theta}}\left[r(\mathbf{s}\_{t^{\prime}}, \mathbf{a}\_{t^{\prime}}) | \mathbf{s}\_t, \mathbf{a}\_t \right] \\ \nabla\_{\theta} J(\theta)\approx\frac{1}{N}\sum\_{i=1}^N\sum\_{t=1}^T\nabla\_{\theta}\log\pi\_{\theta}(\mathbf{a}\_{i,t}|\mathbf{s}\_{i,t})Q({\mathbf{s}\_{i,t}, \mathbf{a}\_{i,t}})
@@ -80,7 +80,7 @@ Now we have a much more elaborate green box. The green box now involve fitting s
 
 So the question here is: fit *what* to *what*?
 
-{{< figure src="/images/CS285/Lecture_6/3.png" class="fig-50">}}
+{{< figure src="/images/CS285/Lecture_6/3.png" class="fig-25">}}
 
 $$
 \begin{aligned} Q^\pi(\mathbf{s}\_t,\mathbf{a}\_t) & =r(\mathbf{s}\_t,\mathbf{a}\_t)+\sum\_{t^{\prime}=t+1}^{T}E\_{\pi\_{\theta}}\left[r(\mathbf{s}\_{t^{\prime}},\mathbf{a}\_{t^{\prime}})|\mathbf{s}\_t,\mathbf{a}\_t\right] \\ & =r(\mathbf{s}\_t,\mathbf{a}\_t)+E\_{\mathbf{s}\_{t+1}\sim p(\mathbf{s}\_{t+1}|\mathbf{s}\_t,\mathbf{a}\_t)}[V^{\pi}(\mathbf{s}\_{t+1})] \\ & \approx r(\mathbf{s}\_t,\mathbf{a}\_t)+V^\pi(\mathbf{s}\_{t+1})\end{aligned}
@@ -132,10 +132,13 @@ As an example, even though the green state along the first trajectory will never
 
 That is essentially the ***generalization***. Generalization means that your function approximator understands that nearby states should take on similar values. 
 
-{{< figure src="/images/CS285/Lecture_6/4.png" class="fig-50">}}
+{{< figure src="/images/CS285/Lecture_6/4.png" class="fig-25">}}
 The way we would do this is 
 
-- training data: $\left\{\left(\mathbf{s}\_{i,t},\sum\_{t^{\prime}=t}^Tr(\mathbf{s}\_{i,t^{\prime}},\mathbf{a}\_{i,t^{\prime}})\right)\right\}$, $y\_{i,t} =\sum\_{t^{\prime}=t}^Tr(\mathbf{s}\_{i,t^{\prime}},\mathbf{a}\_{i,t^{\prime}})$
+- training data: 
+  $$
+  \left\{\left(\mathbf{s}\_{i,t},\sum\_{t^{\prime}=t}^Tr(\mathbf{s}\_{i,t^{\prime}},\mathbf{a}\_{i,t^{\prime}})\right)\right\}, y\_{i,t} =\sum\_{t^{\prime}=t}^Tr(\mathbf{s}\_{i,t^{\prime}},\mathbf{a}\_{i,t^{\prime}})
+  $$
 - supervised regression: $\mathcal{L}(\phi)=\frac{1}{2}\sum\_i\left\|\hat{V}\_{\phi}^\pi(\mathbf{s}\_i)-y\_i\right\|^2$
 
 Can we do even better?
@@ -151,7 +154,10 @@ $$
 
 that means we are going to approximate $V^{\pi}(\mathbf{s}\_{i,t+1})$ using our function approximator.
 
-- training data: $\left\{\left(\mathbf{s}\_{i,t},r(\mathbf{s}\_{i,t},\mathbf{a}\_{i,t})+\hat{V}\_{\phi}^{\pi}(\mathbf{s}\_{i,t+1})\right)\right\}$
+- training data: 
+  $$
+  \left\{\left(\mathbf{s}\_{i,t},r(\mathbf{s}\_{i,t},\mathbf{a}\_{i,t})+\hat{V}\_{\phi}^{\pi}(\mathbf{s}\_{i,t+1})\right)\right\}
+  $$
 
 where we will directly use previous fitted value function to estimate $\hat{V}\_{\phi}^{\pi}(\mathbf{s}\_{i,t+1})$. Sometimes, this is referred to as a ***bootstrapped estimate***. With this improved method, the agent doesn't have to wait for the episode to finish. It can create a training sample after each step. It’s a trade-off between lower variance and higher bias.
 
@@ -169,7 +175,7 @@ where we will directly use previous fitted value function to estimate $\hat{V}\_
 4. $\nabla\_{\theta} J(\theta) \approx \sum\_i \nabla\_{\theta} \log \pi\_{\theta}(\mathbf{a}\_i | \mathbf{s}\_i) \hat{A}^\pi(\mathbf{s}\_i, \mathbf{a}\_i)$
 5. $\theta \leftarrow \theta + \alpha \nabla\_{\theta} J(\theta)$
 
-{{< figure src="/images/CS285/Lecture_6/5.png" class="fig-50">}}
+{{< figure src="/images/CS285/Lecture_6/5.png" class="fig-25">}}
 
 ### Aside: discount factors
 
@@ -240,13 +246,13 @@ Basically, we can use a two network design: one maps a state $\mathbf{s}$ to $\h
 
 There is also a shared network design, where we have one trunk with separate heads, one for the value and one for the policy action distribution. In this case, the two heads share the internal representations so that, for example, if the value function figures out good representations first, the policy could benefit from them. This shared network design is a little bit harder to train because those shared layers are getting hit with very different gradients. The gradients from the value regression and the gradients from the policy will be on different scales and have different statistics and therefore require more hyper parameter tuning in order to stabilize this approach.
 
-{{< figure src="/images/CS285/Lecture_6/6.png" class="fig-100">}}
+{{< figure src="/images/CS285/Lecture_6/6.png" class="fig-75">}}
 
 ### Online actor-critic in practice
 
 The algorithm described above is fully online, meaning that it learns one sample at a time. Using just one sample to update deep neural nets with stochastic gradient descent will cause too much variance. These updates will all work best if we have a batch, for example, using parallel workers. In practice, the asynchronous parallel pattern is used more often.
 
-{{< figure src="/images/CS285/Lecture_6/7.png" class="fig-100">}}
+{{< figure src="/images/CS285/Lecture_6/7.png" class="fig-75">}}
 
 ### Can we remove the on-policy assumption entirely?
 
@@ -254,7 +260,7 @@ In the asynchronous actor-critic algorithm, the whole point is that we are able 
 
 When updating the network, we’re going to use a replay buffer of all transitions we’ve seen, and load the batch from it. So we’re actually not going to necessarily use the latest transitions. But in this case, we have to modify our algorithm a bit since the batch that we load in from the buffer definitely comes from much older policies.
 
-{{< figure src="/images/CS285/Lecture_6/8.png" class="fig-50">}}
+{{< figure src="/images/CS285/Lecture_6/8.png" class="fig-25">}}
 
 **Online actor-critic algorithm:**
 
@@ -303,9 +309,9 @@ So we have arrived at a quite **complete** version:
 3. update $\hat{Q}^\pi\_{\phi}$ using target $y\_i = r + \gamma \hat{Q}^\pi\_{\phi}(\mathbf{s}\_i^\prime, \mathbf{a}\_i^\prime)$ for each $\mathbf{s}\_i$, $\mathbf{a}\_i$
 4. $\nabla\_{\theta} J(\theta) \approx \frac{1}{N} \sum\_i \nabla\_{\theta} \log \pi\_{\theta}(\mathbf{a}\_i^\pi | \mathbf{s}\_i) \hat{Q}^\pi\_{\phi}(\mathbf{s}\_i, \mathbf{a}^\pi\_i)$ where $\mathbf{a}\_i^\pi \sim \pi\_{\theta}(\mathbf{a} | \mathbf{s}\_i)$
 5. $\theta \leftarrow \theta + \alpha \nabla\_{\theta} J(\theta)$
-- Example practical algorithm
-    
-    [Soft Actor-Critic: Off-Policy Maximum Entropy Deep Reinforcement...](https://arxiv.org/abs/1801.01290)
+{{< collapsible title="Example practical algorithm." >}}   
+[Soft Actor-Critic: Off-Policy Maximum Entropy Deep Reinforcement...](https://arxiv.org/abs/1801.01290)
+{{< /collapsible >}}
     
 
 ## Critics as Baselines
@@ -342,97 +348,97 @@ $$
 
 In this case, the variance is lowered because the baseline is closer to rewards. Also, it’s unbiased because $\hat{V}\_{\phi}^{\pi} (\mathbf{s}\_{i,t})$ only depends on state. It can be proved that the estimator is unbiased if the baseline $b$ only depends on state. Otherwise, if the baseline $b$ also depends on action, the estimator is biased.
 
-- Provement
-    
-    *Generated by Gemini 2.5 pro*
-    
-    We consider the policy gradient estimator for an objective function $J(\theta)$ where $\theta$ are the policy parameters:
-    
-    $$
-    \nabla\_{\theta} J(\theta) = E\_{\pi\_{\theta}} \left[ \sum\_{t=0}^T \nabla\_{\theta} \log \pi\_{\theta}(\mathbf{a}\_t|\mathbf{s}\_t) Q^\pi(\mathbf{s}\_t, \mathbf{a}\_t) \right] 
-    $$
-    
-    To reduce variance, a baseline function $b(\mathbf{s}\_t, \mathbf{a}\_t)$ can be subtracted from $Q^\pi(\mathbf{s}\_t, \mathbf{a}\_t)$. The modified estimator is:
-    
-    $$
-    \hat{\nabla}\_{\theta} J(\theta) = \sum\_{t=0}^T \nabla\_{\theta} \log \pi\_{\theta}(\mathbf{a}\_t|\mathbf{s}\_t) (Q^\pi(\mathbf{s}\_t, \mathbf{a}\_t) - b(\mathbf{s}\_t, \mathbf{a}\_t))
-    $$
-    
-    For the estimator to be unbiased, its expectation must equal the true gradient: $E\_{\pi\_{\theta}}[\hat{\nabla}\_{\theta} J(\theta)] = \nabla\_{\theta} J(\theta)$.
-    This condition holds if and only if $E{\pi\_{\theta}} \left[ \sum\_{t=0}^T \nabla\_{\theta} \log \pi\_{\theta}(\mathbf{a}\_t|\mathbf{s}\_t) b(\mathbf{s}\_t, \mathbf{a}\_t) \right] = 0$.
-    Due to the linearity of expectation and summation, we need to examine whether $E\_{\pi\_{\theta}}[\nabla\_{\theta} \log \pi\_{\theta}(\mathbf{a}\_t|\mathbf{s}\_t) b(\mathbf{s}\_t, \mathbf{a}\_t)] = 0$ for each time step $t$. This term can be written as:
-    
-    $$
-    \sum\_{\mathbf{s}} P(\mathbf{s}\_t=\mathbf{s}) \sum\_{\mathbf{a}} \pi\_{\theta}(\mathbf{a}|\mathbf{s}) \nabla\_{\theta} \log \pi\_{\theta}(\mathbf{a}|\mathbf{s}) b(\mathbf{s}, \mathbf{a})
-    $$
-    
-    We will analyze the inner summation term: $\sum\_{\mathbf{a}} \pi\_{\theta}(\mathbf{a}|\mathbf{s}) \nabla\_{\theta} \log \pi\_{\theta}(\mathbf{a}|\mathbf{s}) b(\mathbf{s}, \mathbf{a})$.
-    
-    **Case 1: Baseline** $b$ **is state-dependent (**$b(\mathbf{s}\_t)$**)**
-    
-    If the baseline $b$ depends only on the state $\mathbf{s}\_t$*,* we denote it as $b(\mathbf{s})$. The inner summation becomes:
-    
-    $$
-    \sum\_{\mathbf{a}} \pi\_{\theta}(\mathbf{a}|\mathbf{s}) \nabla\_{\theta} \log \pi\_{\theta}(\mathbf{a}|\mathbf{s}) b(\mathbf{s})
-    $$
-    
-    Since $b(\mathbf{s})$ does not depend on $\mathbf{a}$, it can be factored out of the summation:
-    
-    $$
-    b(\mathbf{s}) \sum\_{\mathbf{a}} \pi\_{\theta}(\mathbf{a}|\mathbf{s}) \nabla\_{\theta} \log \pi\_{\theta}(\mathbf{a}|\mathbf{s})
-    $$
-    
-    We know that for any valid probability distribution, the sum of probabilities over all actions for a given state is 1:
-    
-    $$
-    \sum\_{\mathbf{a}} \pi\_{\theta}(\mathbf{a}|\mathbf{s}) = 1 
-    $$
-    
-    Taking the gradient with respect to $\theta$ on both sides:
-    
-    $$
-    \nabla\_{\theta} \left( \sum\_{\mathbf{a}} \pi\_{\theta}(\mathbf{a}|\mathbf{s}) \right) = \nabla\_{\theta} (1)
-    $$
-    
-    $$
-    \sum\_{\mathbf{a}} \nabla\_{\theta} \pi\_{\theta}(\mathbf{a}|\mathbf{s}) = 0
-    $$
-    
-    Using the logarithmic derivative identity, $\nabla\_{\theta} \pi\_{\theta}(\mathbf{a}|\mathbf{s}) = \pi\_{\theta}(\mathbf{a}|\mathbf{s}) \nabla\_{\theta} \log \pi\_{\theta}(\mathbf{a}|\mathbf{s})$, we substitute this into the equation:
-    
-    $$
-    \sum\_{\mathbf{a}} \pi\_{\theta}(\mathbf{a}|\mathbf{s}) \nabla\_{\theta} \log \pi\_{\theta}(\mathbf{a}|\mathbf{s}) = 0 
-    $$
-    
-    Substituting this back into the expression for the inner summation:
-    
-    $$
-    b(\mathbf{s}) \cdot 0 = 0
-    $$
-    
-    Therefore, for each state $\mathbf{s}$, the term contributed by the baseline is zero. This implies that the overall expectation of the baseline term is zero:
-    
-    $$
-    E\_{\pi\_{\theta}}[\nabla\_{\theta} \log \pi\_{\theta}(\mathbf{a}\_t|\mathbf{s}\_t) b(\mathbf{s}\_t)] = \sum\_{\mathbf{s}} P(\mathbf{s}\_t=\mathbf{s}) \cdot 0 = 0\ 
-    $$
-    
-    **Conclusion:** When the baseline $b$ is state-dependent, the policy gradient estimator remains **unbiased**.
-    
-    **Case 2: Baseline** $b$ **is action-dependent (**$b(\mathbf{s}\_t, \mathbf{a}\_t)$**)**
-    
-    If the baseline $b$ depends on both the state $\mathbf{s}\_t$ and the action $\mathbf{a}\_t$, we denote it as $b(\mathbf{s}, \mathbf{a})$. The inner summation is:
-    
-    $$
-    \sum\_{\mathbf{a}} \pi\_{\theta}(\mathbf{a}|\mathbf{s}) \nabla\_{\theta} \log \pi\_{\theta}(\mathbf{a}|\mathbf{s}) b(\mathbf{s}, \mathbf{a}) 
-    $$
-    
-    Since $b(\mathbf{s}, \mathbf{a})$ depends on $\mathbf{a}$, it **cannot** be factored out of the summation.
-    In general, the product $\pi\_{\theta}(\mathbf{a}|\mathbf{s}) \nabla\_{\theta} \log \pi\_{\theta}(\mathbf{a}|\mathbf{s})$ will vary with $\mathbf{a}$, and $b(\mathbf{s}, \mathbf{a})$ will also vary with $\mathbf{a}$. There is no mathematical identity that guarantees this sum to be zero when $b(\mathbf{s}, \mathbf{a})$ is action-dependent.
-    For instance, consider a state $\mathbf{s}$ with two actions $\mathbf{a}\_1, \mathbf{a}\_2$. We know $\pi\_{\theta}(\mathbf{a}\_1|\mathbf{s}) \nabla\_{\theta} \log \pi\_{\theta}(\mathbf{a}\_1|\mathbf{s}) = - \pi\_{\theta}(\mathbf{a}\_2|\mathbf{s}) \nabla\_{\theta} \log \pi\_{\theta}(\mathbf{a}\_2|\mathbf{s})$. Let this value be $X$.
-    The sum would be $X \cdot b(\mathbf{s}, \mathbf{a}\_1) + (-X) \cdot b(\mathbf{s}, \mathbf{a}\_2) = X (b(\mathbf{s}, \mathbf{a}\_1) - b(\mathbf{s}, \mathbf{a}\_2))$.
-    This expression is generally non-zero if $b(\mathbf{s}, \mathbf{a}\_1) \neq b(\mathbf{s}, \mathbf{a}\_2)$ and $X \neq 0$.
-    Therefore, the expected value of the baseline term $E\_{\pi\_{\theta}}[\nabla\_{\theta} \log \pi\_{\theta}(\mathbf{a}\_t|\mathbf{s}\_t) b(\mathbf{s}\_t, \mathbf{a}\_t)]$ will generally **not be zero**.
-    **Conclusion:** When the baseline $b$ is action-dependent, the policy gradient estimator becomes **biased**.
+{{< collapsible title="Provement" >}}
+*Generated by Gemini 2.5 pro*
+
+We consider the policy gradient estimator for an objective function $J(\theta)$ where $\theta$ are the policy parameters:
+
+$$
+\nabla\_{\theta} J(\theta) = E\_{\pi\_{\theta}} \left[ \sum\_{t=0}^T \nabla\_{\theta} \log \pi\_{\theta}(\mathbf{a}\_t|\mathbf{s}\_t) Q^\pi(\mathbf{s}\_t, \mathbf{a}\_t) \right] 
+$$
+
+To reduce variance, a baseline function $b(\mathbf{s}\_t, \mathbf{a}\_t)$ can be subtracted from $Q^\pi(\mathbf{s}\_t, \mathbf{a}\_t)$. The modified estimator is:
+
+$$
+\hat{\nabla}\_{\theta} J(\theta) = \sum\_{t=0}^T \nabla\_{\theta} \log \pi\_{\theta}(\mathbf{a}\_t|\mathbf{s}\_t) (Q^\pi(\mathbf{s}\_t, \mathbf{a}\_t) - b(\mathbf{s}\_t, \mathbf{a}\_t))
+$$
+
+For the estimator to be unbiased, its expectation must equal the true gradient: $E\_{\pi\_{\theta}}[\hat{\nabla}\_{\theta} J(\theta)] = \nabla\_{\theta} J(\theta)$.
+This condition holds if and only if $E{\pi\_{\theta}} \left[ \sum\_{t=0}^T \nabla\_{\theta} \log \pi\_{\theta}(\mathbf{a}\_t|\mathbf{s}\_t) b(\mathbf{s}\_t, \mathbf{a}\_t) \right] = 0$.
+Due to the linearity of expectation and summation, we need to examine whether $E\_{\pi\_{\theta}}[\nabla\_{\theta} \log \pi\_{\theta}(\mathbf{a}\_t|\mathbf{s}\_t) b(\mathbf{s}\_t, \mathbf{a}\_t)] = 0$ for each time step $t$. This term can be written as:
+
+$$
+\sum\_{\mathbf{s}} P(\mathbf{s}\_t=\mathbf{s}) \sum\_{\mathbf{a}} \pi\_{\theta}(\mathbf{a}|\mathbf{s}) \nabla\_{\theta} \log \pi\_{\theta}(\mathbf{a}|\mathbf{s}) b(\mathbf{s}, \mathbf{a})
+$$
+
+We will analyze the inner summation term: $\sum\_{\mathbf{a}} \pi\_{\theta}(\mathbf{a}|\mathbf{s}) \nabla\_{\theta} \log \pi\_{\theta}(\mathbf{a}|\mathbf{s}) b(\mathbf{s}, \mathbf{a})$.
+
+**Case 1: Baseline** $b$ **is state-dependent (**$b(\mathbf{s}\_t)$**)**
+
+If the baseline $b$ depends only on the state $\mathbf{s}\_t$*,* we denote it as $b(\mathbf{s})$. The inner summation becomes:
+
+$$
+\sum\_{\mathbf{a}} \pi\_{\theta}(\mathbf{a}|\mathbf{s}) \nabla\_{\theta} \log \pi\_{\theta}(\mathbf{a}|\mathbf{s}) b(\mathbf{s})
+$$
+
+Since $b(\mathbf{s})$ does not depend on $\mathbf{a}$, it can be factored out of the summation:
+
+$$
+b(\mathbf{s}) \sum\_{\mathbf{a}} \pi\_{\theta}(\mathbf{a}|\mathbf{s}) \nabla\_{\theta} \log \pi\_{\theta}(\mathbf{a}|\mathbf{s})
+$$
+
+We know that for any valid probability distribution, the sum of probabilities over all actions for a given state is 1:
+
+$$
+\sum\_{\mathbf{a}} \pi\_{\theta}(\mathbf{a}|\mathbf{s}) = 1 
+$$
+
+Taking the gradient with respect to $\theta$ on both sides:
+
+$$
+\nabla\_{\theta} \left( \sum\_{\mathbf{a}} \pi\_{\theta}(\mathbf{a}|\mathbf{s}) \right) = \nabla\_{\theta} (1)
+$$
+
+$$
+\sum\_{\mathbf{a}} \nabla\_{\theta} \pi\_{\theta}(\mathbf{a}|\mathbf{s}) = 0
+$$
+
+Using the logarithmic derivative identity, $\nabla\_{\theta} \pi\_{\theta}(\mathbf{a}|\mathbf{s}) = \pi\_{\theta}(\mathbf{a}|\mathbf{s}) \nabla\_{\theta} \log \pi\_{\theta}(\mathbf{a}|\mathbf{s})$, we substitute this into the equation:
+
+$$
+\sum\_{\mathbf{a}} \pi\_{\theta}(\mathbf{a}|\mathbf{s}) \nabla\_{\theta} \log \pi\_{\theta}(\mathbf{a}|\mathbf{s}) = 0 
+$$
+
+Substituting this back into the expression for the inner summation:
+
+$$
+b(\mathbf{s}) \cdot 0 = 0
+$$
+
+Therefore, for each state $\mathbf{s}$, the term contributed by the baseline is zero. This implies that the overall expectation of the baseline term is zero:
+
+$$
+E\_{\pi\_{\theta}}[\nabla\_{\theta} \log \pi\_{\theta}(\mathbf{a}\_t|\mathbf{s}\_t) b(\mathbf{s}\_t)] = \sum\_{\mathbf{s}} P(\mathbf{s}\_t=\mathbf{s}) \cdot 0 = 0\ 
+$$
+
+**Conclusion:** When the baseline $b$ is state-dependent, the policy gradient estimator remains **unbiased**.
+
+**Case 2: Baseline** $b$ **is action-dependent (**$b(\mathbf{s}\_t, \mathbf{a}\_t)$**)**
+
+If the baseline $b$ depends on both the state $\mathbf{s}\_t$ and the action $\mathbf{a}\_t$, we denote it as $b(\mathbf{s}, \mathbf{a})$. The inner summation is:
+
+$$
+\sum\_{\mathbf{a}} \pi\_{\theta}(\mathbf{a}|\mathbf{s}) \nabla\_{\theta} \log \pi\_{\theta}(\mathbf{a}|\mathbf{s}) b(\mathbf{s}, \mathbf{a}) 
+$$
+
+Since $b(\mathbf{s}, \mathbf{a})$ depends on $\mathbf{a}$, it **cannot** be factored out of the summation.
+In general, the product $\pi\_{\theta}(\mathbf{a}|\mathbf{s}) \nabla\_{\theta} \log \pi\_{\theta}(\mathbf{a}|\mathbf{s})$ will vary with $\mathbf{a}$, and $b(\mathbf{s}, \mathbf{a})$ will also vary with $\mathbf{a}$. There is no mathematical identity that guarantees this sum to be zero when $b(\mathbf{s}, \mathbf{a})$ is action-dependent.
+For instance, consider a state $\mathbf{s}$ with two actions $\mathbf{a}\_1, \mathbf{a}\_2$. We know $\pi\_{\theta}(\mathbf{a}\_1|\mathbf{s}) \nabla\_{\theta} \log \pi\_{\theta}(\mathbf{a}\_1|\mathbf{s}) = - \pi\_{\theta}(\mathbf{a}\_2|\mathbf{s}) \nabla\_{\theta} \log \pi\_{\theta}(\mathbf{a}\_2|\mathbf{s})$. Let this value be $X$.
+The sum would be $X \cdot b(\mathbf{s}, \mathbf{a}\_1) + (-X) \cdot b(\mathbf{s}, \mathbf{a}\_2) = X (b(\mathbf{s}, \mathbf{a}\_1) - b(\mathbf{s}, \mathbf{a}\_2))$.
+This expression is generally non-zero if $b(\mathbf{s}, \mathbf{a}\_1) \neq b(\mathbf{s}, \mathbf{a}\_2)$ and $X \neq 0$.
+Therefore, the expected value of the baseline term $E\_{\pi\_{\theta}}[\nabla\_{\theta} \log \pi\_{\theta}(\mathbf{a}\_t|\mathbf{s}\_t) b(\mathbf{s}\_t, \mathbf{a}\_t)]$ will generally **not be zero**.
+**Conclusion:** When the baseline $b$ is action-dependent, the policy gradient estimator becomes **biased**.
+{{< /collapsible >}}
     
 
 **Control variates: action-dependent baselines**
@@ -494,11 +500,11 @@ Can we combine these two, to control bias/variance tradeoff?
 
 - When we are using a discount, the reward will decrease over time, which means that the bias gotten from the value function is much less of a problem if we put the value function out of the next time step but further in the future.
     
-    {{< figure src="/images/CS285/Lecture_6/9.png" class="fig-50">}}
+    {{< figure src="/images/CS285/Lecture_6/9.png" class="fig-25">}}
     
 - On the other hand, the variance that we get from the single sample estimator is also much more of a problem further into the future. It’s quite natural to understand.
     
-    {{< figure src="/images/CS285/Lecture_6/10.png" class="fig-50">}}
+    {{< figure src="/images/CS285/Lecture_6/10.png" class="fig-25">}}
     
 
 The way we gonna use to combine these is constructing a ***n-step returns*** estimator. In a n-step return estimator, we sum up rewards until some time step ends and cut it off to replace it with the value function. The advantage estimator will be something like this
@@ -540,4 +546,4 @@ the $\delta\_{t^\prime}$ here, known as TD-error ( Temporal Difference Error ), 
 
 ---
 
-{{< figure src="/images/CS285/Lecture_6/11.png" class="fig-100">}}
+{{< figure src="/images/CS285/Lecture_6/11.png" class="fig-75">}}
