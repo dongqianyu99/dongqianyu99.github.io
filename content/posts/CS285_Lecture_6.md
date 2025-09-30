@@ -137,7 +137,7 @@ The way we would do this is
 
 - training data: 
   $$
-  \left(\mathbf{s}\_{i,t},\sum\_{t^{\prime}=t}^Tr(\mathbf{s}\_{i,t^{\prime}},\mathbf{a}\_{i,t^{\prime}})\right) \\ y\_{i,t} =\sum\_{t^{\prime}=t}^Tr(\mathbf{s}\_{i,t^{\prime}},\mathbf{a}\_{i,t^{\prime}})
+  \left(\mathbf{s}\_{i,t},\sum\_{t^{\prime}=t}^Tr(\mathbf{s}\_{i,t^{\prime}},\mathbf{a}\_{i,t^{\prime}})\right), y\_{i,t} =\sum\_{t^{\prime}=t}^Tr(\mathbf{s}\_{i,t^{\prime}},\mathbf{a}\_{i,t^{\prime}})
   $$
 - supervised regression: $\mathcal{L}(\phi)=\frac{1}{2}\sum\_i\left\|\hat{V}\_{\phi}^\pi(\mathbf{s}\_i)-y\_i\right\|^2$
 
