@@ -137,7 +137,7 @@ The way we would do this is
 
 - training data: 
   $$
-  \left\{ \left(\mathbf{s}\_{i,t},\sum\_{t^{\prime}=t}^Tr(\mathbf{s}\_{i,t^{\prime}},\mathbf{a}\_{i,t^{\prime}})\right) \right\}, y\_{i,t} =\sum\_{t^{\prime}=t}^Tr(\mathbf{s}\_{i,t^{\prime}},\mathbf{a}\_{i,t^{\prime}})
+  \left(\mathbf{s}\_{i,t},\sum\_{t^{\prime}=t}^Tr(\mathbf{s}\_{i,t^{\prime}},\mathbf{a}\_{i,t^{\prime}})\right) \\ y\_{i,t} =\sum\_{t^{\prime}=t}^Tr(\mathbf{s}\_{i,t^{\prime}},\mathbf{a}\_{i,t^{\prime}})
   $$
 - supervised regression: $\mathcal{L}(\phi)=\frac{1}{2}\sum\_i\left\|\hat{V}\_{\phi}^\pi(\mathbf{s}\_i)-y\_i\right\|^2$
 
@@ -156,7 +156,7 @@ that means we are going to approximate $V^{\pi}(\mathbf{s}\_{i,t+1})$ using our 
 
 - training data: 
   $$
-  \left\{\left(\mathbf{s}\_{i,t},r(\mathbf{s}\_{i,t},\mathbf{a}\_{i,t})+\hat{V}\_{\phi}^{\pi}(\mathbf{s}\_{i,t+1})\right)\right\}
+  \left(\mathbf{s}\_{i,t},r(\mathbf{s}\_{i,t},\mathbf{a}\_{i,t})+\hat{V}\_{\phi}^{\pi}(\mathbf{s}\_{i,t+1})\right)
   $$
 
 where we will directly use previous fitted value function to estimate $\hat{V}\_{\phi}^{\pi}(\mathbf{s}\_{i,t+1})$. Sometimes, this is referred to as a ***bootstrapped estimate***. With this improved method, the agent doesn't have to wait for the episode to finish. It can create a training sample after each step. It’s a trade-off between lower variance and higher bias.
