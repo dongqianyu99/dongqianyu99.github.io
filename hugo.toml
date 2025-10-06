@@ -12,7 +12,7 @@ theme = 'not-much'
     style = 'dracula'
   [markup.goldmark]
     [markup.goldmark.renderer]
-      unsafe = false
+      unsafe = true
 
 [params]
 theme = "light"
