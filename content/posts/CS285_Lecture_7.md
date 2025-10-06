@@ -39,7 +39,7 @@ Different from policy gradient, we fit some kind of value function that estimate
 
 The second step is pretty straight-forward. But how can we evaluate the advantage $A^{\pi}$?
 
-{{< figure src="/images/CS285/Lecture_7/1.png" class="fig-50">}}
+{{< figure src="/images/CS285/Lecture_7/1.png" class="fig-35">}}
 
 As before, we can express the advantage as 
 
@@ -105,7 +105,7 @@ We can skip the policy and compute values directly.
 
 This procedure can be simplified even further if we actually take step 2 and plug it into step 1 to replace the value function in step 1.
 
-{{< figure src="/images/CS285/Lecture_7/3.jpeg" class="fig-50">}}
+{{< figure src="/images/CS285/Lecture_7/3.jpeg" class="fig-35">}}
 
 ## Fitted Value Iteration & Q-Iteration
 
