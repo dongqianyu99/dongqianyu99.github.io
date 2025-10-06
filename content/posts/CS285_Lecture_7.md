@@ -311,7 +311,7 @@ Again, the fitted value iteration algorithm can be written extremely concisely a
 
 BUT… $\Pi \mathcal{B}$ is *not* a contraction of any kind, because they are contractions for *different norms*. The picture describes it vividly.
 
-{{< figure src="/images/CS285/Lecture_7/8.png" class="fig-50">}}
+{{< figure src="/images/CS285/Lecture_7/8.png" class="fig-75">}}
 
 ### What about fitted Q-iteration?
 
