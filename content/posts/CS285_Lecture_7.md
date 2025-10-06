@@ -105,7 +105,7 @@ We can skip the policy and compute values directly.
 
 This procedure can be simplified even further if we actually take step 2 and plug it into step 1 to replace the value function in step 1.
 
-{{< figure src="/images/CS285/Lecture_7/3.png" class="fig-50">}}
+{{< figure src="/images/CS285/Lecture_7/3.jpeg" class="fig-50">}}
 
 ## Fitted Value Iteration & Q-Iteration
 
@@ -198,7 +198,7 @@ One way we can think of fitted Q-iteration is that we have a big bucket of diffe
 {{< figure src="/images/CS285/Lecture_7/5.png" class="fig-50">}}
 
 {{< collapsible title="What is fitted Q-iteration optimizing?" >}}   
-{{< figure src="/images/CS285/Lecture_7/6.png" class="fig-75">}}
+{{< figure src="/images/CS285/Lecture_7/6.png" class="fig-100">}}
 {{< /collapsible >}}
 
 ### Online Q-learning algorithms
@@ -221,7 +221,7 @@ There’re number of choices that we make in practice to facilitate this.
 
 - ***Epsilon greedy***
     
-    {{< figure src="/images/CS285/Lecture_6/12.png" class="fig-75">}}
+    {{< figure src="/images/CS285/Lecture_7/12.png" class="fig-75">}}
     
     With probability $1 - \epsilon$ , we will take the greedy action and then with probability $\epsilon$ , we will take one of the other actions uniformly at random.
     
@@ -295,7 +295,7 @@ $$
 - $\Omega$: all value functions represented by, e.g., neural nets
 - $(\mathcal{B}V)(\mathbf{s})$: updated value function
 
-{{< figure src="/images/CS285/Lecture_7/7.png" class="fig-50">}}
+{{< figure src="/images/CS285/Lecture_7/7.jpeg" class="fig-50">}}
 
 This can be seen, vividly, as a *projection*. We denote this new operator of projection as $\Pi$, where
 
@@ -333,6 +333,6 @@ So the concise version is:
 Also, $\Pi \mathcal{B}$ is *not* a contraction of any kind.
 
 {{< collapsible title="More on this." >}}   
-{{< figure src="/images/CS285/Lecture_7/9.png" class="fig-75">}}
-{{< figure src="/images/CS285/Lecture_7/10.png" class="fig-75">}}
+{{< figure src="/images/CS285/Lecture_7/9.png" class="fig-100">}}
+{{< figure src="/images/CS285/Lecture_7/10.png" class="fig-100">}}
 {{< /collapsible >}}
