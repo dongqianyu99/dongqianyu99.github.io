@@ -198,7 +198,7 @@ One way we can think of fitted Q-iteration is that we have a big bucket of diffe
 {{< figure src="/images/CS285/Lecture_7/5.png" class="fig-50">}}
 
 {{< collapsible title="What is fitted Q-iteration optimizing?" >}}   
-{{< figure src="/images/CS285/Lecture_7/6.png" class="fig-100">}}
+{{< figure src="/images/CS285/Lecture_7/6.png" class="fig-85">}}
 {{< /collapsible >}}
 
 ### Online Q-learning algorithms
@@ -333,6 +333,6 @@ So the concise version is:
 Also, $\Pi \mathcal{B}$ is *not* a contraction of any kind.
 
 {{< collapsible title="More on this." >}}   
-{{< figure src="/images/CS285/Lecture_7/9.png" class="fig-100">}}
-{{< figure src="/images/CS285/Lecture_7/10.png" class="fig-100">}}
+{{< figure src="/images/CS285/Lecture_7/9.png" class="fig-85">}}
+{{< figure src="/images/CS285/Lecture_7/10.png" class="fig-85">}}
 {{< /collapsible >}}

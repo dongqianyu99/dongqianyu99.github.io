@@ -37,6 +37,12 @@
   height: auto;
 }
 
+/* 设置一个宽度为 85% 的类 */
+.fig-85 img {
+  width: 85%;
+  height: auto;
+}
+
 /* 设置一个宽度为 100% 的类 */
 .fig-100 img {
   width: 100%;
