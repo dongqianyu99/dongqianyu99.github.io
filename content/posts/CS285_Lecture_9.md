@@ -19,7 +19,7 @@ summary: Advanced Policy Gradient
 - [CS 285: Lecture 9, Part 4](https://www.youtube.com/watch?v=QWnpF0FaKL4&list=PL\_iWQOsE6TfVYGEGiAOMaOzzv41Jfm\_Ps&index=39)
 
 {{< collapsible title="Recap: policy gradients" >}}   
-{{< figure src="/images/CS285/Lecture\_9/1.png" class="fig-85">}}
+{{< figure src="/images/CS285/Lecture_9/1.png" class="fig-85">}}
 {{< /collapsible >}}
     
 
@@ -285,7 +285,7 @@ $$
 When we calculate the gradient of some objective and we use gradient ascent or gradient descent, that can be interpreted as optimizing a *first-order Taylor expansion* of that objective. 
 
 {{< collapsible title="Non-linear optimization" >}}   
-{{< figure src="/images/CS285/Lecture\_9/2.png" class="fig-35">}}
+{{< figure src="/images/CS285/Lecture_9/2.png" class="fig-35">}}
 For example, if we want to optimize some complicated function like the *blue* curve here, one way we can do is that we can pick up a region and compute a very simple approximation, e.g., linear approximation, to that function ( *green* line here, basically obtained by taking the gradient ). Then, instead of optimizing the *blue* curve, we optimize the *green* line, which is much simpler than the *blue* curve.
 
 But if we don’t impose any constraint, the green line goes to positive and negative infinity. So this only makes sense if we impose a constraint, which is essentially the region ( *red* box here ) within which we trust the degree to which the *green* line approximates the *blue* curve. 
@@ -362,8 +362,8 @@ On very convenient thing about it is that we can *approximate it using samples*.
 
 Visually, the constraint circle turns into a ellipse, where the shape of the ellipse is determined by the matrix $\mathbf{F}$.
 
-{{< figure src="/images/CS285/Lecture\_9/3.png" class="fig-35">}}
-{{< figure src="/images/CS285/Lecture\_9/4.png" class="fig-35">}}
+{{< figure src="/images/CS285/Lecture_9/3.png" class="fig-35">}}
+{{< figure src="/images/CS285/Lecture_9/4.png" class="fig-35">}}
 
 Furthermore, we actually can show that if the constraint is quadratic like this and if we know the Lagrange multiplier, the solution will be given by this equation called ***natural gradient***.
 
@@ -378,7 +378,7 @@ $$
 $$
 
 {{< collapsible title="Is all of this really necessary in practice?" >}}   
-{{< figure src="/images/CS285/Lecture\_9/5.png" class="fig-85">}}
+{{< figure src="/images/CS285/Lecture_9/5.png" class="fig-85">}}
 {{< /collapsible >}}
 
 ### Practical methods and notes
